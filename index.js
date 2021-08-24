@@ -14,7 +14,7 @@ const app = express();
 
 app.get("/", (rec, res, next) => {
 	res.status(200)
-	res.send("Hola Mundo")
+	res.send("Bienvenido")
 })
 
 app.listen(3000, () => {
