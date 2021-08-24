@@ -23,6 +23,6 @@ app.get("/:name", (req,res,next) => {
 	res.send("Pagina nombre")
 } )
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
 	console.log("Server is running...")
 })
