@@ -25,7 +25,7 @@ app.get("/pokemon/all", (req,res,next) => {
 	res.send(pokemon)
 })
 
-app.get("/pokemon/:id", (req, res, next) => {
+app.get("/pokemon/:id([0-9]{1,3})", (req, res, next) => {
 	cont id = req.params.id - 1
 	if (id >= 0 && id < 150) {
 		res.status(200)
