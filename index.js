@@ -2,6 +2,8 @@ const express = require("express");
 
 const app = express();
 
+const { pokemon } = require("./pokedex.json")
+
 /*
 	Verbos HTTP
 	-GET
@@ -14,14 +16,25 @@ const app = express();
 
 app.get("/", (req, res, next) => {
 	res.status(200)
-	res.send("Bienvenido")
+	// const pokemon = pokedex.pokemon
+	res.send("Bienvenido al pokedex")
 })
 
-app.get("/:name", (req,res,next) => {
-	console.log(req.params.name)
+app.get("/pokemon/all", (req,res,next) => {
 	res.status(200)
-	res.send("Pagina nombre")
-} )
+	res.send(pokemon)
+})
+
+app.get("/pokemon/:id", (req, res, next) => {
+	cont id = req.params.id - 1
+	if (id >= 0 && id < 150) {
+		res.status(200)
+		res.send(pokemon[req.params.id - 1])
+	} else {
+		res.status(404)
+		res.send("Pokemon no encontrado")
+	}
+})
 
 app.listen(process.env.PORT || 3000, () => {
 	console.log("Server is running...")
