@@ -6,13 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
+  "repository": {
+    "type" : "git",
+    "url" : "git+https://github.com/OzwP/nodeAPI.git"
+  },
+
   "keywords": [
     "api",
     "rest",
     "nodejs"
   ],
+
   "author": "Oswaldo",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OzwP/nodeAPI/issues"
+  },
+  "homepage":"https://github.com/OzwP/nodeAPI#readme",
   "dependencies": {
     "express": "^4.17.1"
   }
