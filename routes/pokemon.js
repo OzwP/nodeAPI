@@ -1,6 +1,6 @@
 const express = require("express");
 const pokemon = express.Router();
-const { pokemon } = require("./pokedex.json")
+const { pokemon } = require("../pokedex.json")
 
 pokemon.post("/", (req, res, next) => {
 	res.status(200).send(req.body.name)
