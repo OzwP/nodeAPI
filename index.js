@@ -3,9 +3,6 @@
 const express = require("express");
 
 const app = express();
-
-const { pokemon } = require("./pokedex.json")
-
 /*
 	Verbos HTTP
 	-GET (obtener)

@@ -1,12 +1,16 @@
-app.post("/", (req, res, next) => {
+const express = require("express");
+const pokemon = express.Router();
+const { pokemon } = require("./pokedex.json")
+
+pokemon.post("/", (req, res, next) => {
 	res.status(200).send(req.body.name)
 })
 
-app.get("/", (req,res,next) => {
+pokemon.get("/", (req,res,next) => {
 	res.status(200).send(pokemon)
 })
 
-app.get("/:id([0-9]{1,3})", (req, res, next) => {
+pokemon.get("/:id([0-9]{1,3})", (req, res, next) => {
 	const id = req.params.id - 1
 	if (id >= 0 && id < 150) {
 		res.status(200).send(pokemon[req.params.id - 1])
@@ -15,7 +19,7 @@ app.get("/:id([0-9]{1,3})", (req, res, next) => {
 	}
 })
 
-app.get("/:name ([A-za-z]+)", (req, res, next) => {
+pokemon.get("/:name ([A-za-z]+)", (req, res, next) => {
 	const name = req.params.name
 
 	const pk = pokemon.filter((p) => {
