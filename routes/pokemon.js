@@ -35,7 +35,7 @@ pokemon.delete("/:id([0-9]{1,3})", async (req,res,next) => {
 })
 
 pokemon.put("/:id([0-9]{1,3})", async (req,res,next) => {
-	const { pok_name, pok_height, pok_weight, pok_base_experience } = req.body:
+	const { pok_name, pok_height, pok_weight, pok_base_experience } = req.body;
 	
 	
 
