@@ -2,6 +2,7 @@ const express = require("express");
 const user = express.Router();
 const db = require("../config/database")
 const jwt = require("jsonwebtoken")
+const auth = require("./middleware/auth")
 
 user.post("/signup", async (req,res,next) => {
 	const {user_name, user_mail, user_password} = req.body
@@ -48,6 +49,7 @@ user.post("/login", async (req,res,next) => {
 
 })
 
+user.use(auth)
 
 user.get("/", async (req,res,next) => {
 	const usr = await db.query("SELECT * FROM user");
